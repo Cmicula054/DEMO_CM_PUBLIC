@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container main-content" ng-controller="MainCtrl">
+        <form ng-submit="onSubmit()"
+              novalidate="novalidate"
+              name="myForm">
+               
+            <!-- FIRST NAME -->
+
+            <div class="form-group">
+                <label for="FirstName">First Name</label>
+                <input type="text"
+                       name="FirstName"
+                       class="form-control"
+                       ng-model="formModel.FirstName"
+                       id="FirstName"
+                       required="required">
+            </div>
+
+            <!-- LAST NAME -->
+
+            <div class="form-group">
+                <label for="LastName">Last Name</label>
+                <input type="text"
+                       name="LastName"
+                       class="form-control"
+                       ng-model="formModel.LastName"
+                       id="lastName"
+                       required="required">
+            </div>
+
+            <!-- ACCOUNT TYPE -->
+
+            <div class="form-group">
+                <label for="AccountTypeId">Account Type</label>
+                <select class="form-control"
+                        ng-model="formModel.AccountTypeId"
+                        id="accountType"
+                        name="AccountTypeId"
+                        required="required">
+                    <option ng-repeat="account in AccountData" value="{{account.Id}}">{{account.Name}}</option>
+                </select>
+            </div>       
+
+            <!-- USERNAME -->
+
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <input type="text"
+                       name="UserName"
+                       class="form-control"
+                       ng-model="formModel.Username"
+                       id="Username"
+                       required="required">
+                <div id="divOutput">
+
+                </div>
+
+            </div>
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password"
+                       name="Password"
+                       class="form-control"
+                       ng-model="formModel.Password"
+                       id="Password"
+                       ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"
+                       ng-pattern-err-type="badPassword"
+                       required="required">
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email"
+                       name="Email"
+                       class="form-control"
+                       ng-model="formModel.Email"
+                       id="Email"
+                       required="required">
+            </div>
+
+            <!-- Phone -->
+
+            <div class="form-group">
+                <label for="Phone">Phone</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="formModel.Phone"
+                       id="Phone"
+                       ng-pattern="/\d{3}[\-]\d{3}[\-]\d{4}/"
+                       ng-pattern-err-type="badPhone">
+            </div>
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+                <label for="Address1">Address</label>
+                <input type="address"
+                       class="form-control"
+                       ng-model="formModel.Address1"
+                       id="Address1"
+                       required="required">
+            </div>
+
+            <!-- CITY -->
+
+            <div class="form-group">
+                <label for="City">City</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="formModel.City"
+                       id="City"
+                       required="required">
+            </div>
+
+            <!-- STATE -->
+
+            <div class="form-group">
+                <label for="State">State</label>
+                <select class="form-control"
+                        ng-model="formModel.State"
+                        id="State"
+                        required="required">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+
+            <!-- ZIPCODE -->
+
+            <div class="form-group">
+                <label for="Zip">Zip Code</label>
+                <input type="number"
+                       class="form-control"
+                       ng-model="formModel.zip"
+                       id="Zip"
+                       ng-pattern="/(\d{5}([\-]\d{4})?)/"
+                       ng-pattern-err-type="badZipCode"
+                       required="required">
+            </div>
+
+            <!-- BUTTON -->
+
+            <div class="form-group">
+                <button ng-disabled="myForm.$invalid" class="btn btn-primary">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/validate.js"></script>
+    <script src="~/Scripts/script.js"></script>
+  </body>
+
+</html>
+
+
+
+
+<!--
+@*@model DemoApplication.Models.UserRegistraction
+            @{ ViewBag.Title = "RegisterUser"; }
+
+<h2>RegisterUser</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>UserRegistraction</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AccountTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AccountTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AccountTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+    -->

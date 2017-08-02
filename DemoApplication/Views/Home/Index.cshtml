@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">Propak demo application</p>
+    <p><a href="http://www.propak.com" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            This application needs a little work. We need a registration form built. This application should:
+            <ul>
+                <li>Collect new user information</li>
+                <li>Validate that required fields are entered and in the correct format</li>
+                <li>Validate that the requested username does not already exist in App_Data/users.xml before the form is submitted</li>
+                <li>Let the user pick an account type from a select list provided by the Models.AccountType.ValidAccountTypes property</li>
+                <li>Save the submitted information to the users.xml file in the App_Data directory</li>
+                <li>Use postmarkapp to send a confirmation e-mail to the e-mail address provided by the user (the api key is provided in the web.config)</li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Optional</h2>
+        <p>There are also some optional features that aren't required, but would be nice to have:
+            <ul>
+                <li>Look up the City and State automatically based on the Zip Code</li>
+                <li>
+                    Validate that the password has a minimum of eight characters with at least one each:
+                    <ul>
+                        <li>lower-case letter</li>
+                        <li>upper-case letter</li>
+                        <li>number</li>
+                        <li>symbol</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Account Information</h2>
+        <p>We need to collect the following information from registering users:
+            <ul>
+                <li>First Name<sup>*</sup></li>
+                <li>Last Name<sup>*</sup></li>
+                <li>Account Type Id<sup>*</sup></li>
+                <li>Username<sup>*</sup></li>
+                <li>Password<sup>*</sup></li>
+                <li>E-Mail Address<sup>*</sup></li>
+                <li>Phone Number</li>
+                <li>Address Line 1<sup>*</sup></li>
+                <li>Address Line 2</li>
+                <li>City<sup>*</sup></li>
+                <li>State<sup>*</sup></li>
+                <li>Zip Code<sup>*</sup></li>
+            </ul>
+            Items marked with <sup>*</sup> are required.
+        </p>
+    </div>
+</div>
